@@ -6,7 +6,7 @@ struct Stats compute_statistics(const float *numberset, int setlength)
 {
  
     struct Stats s;
-    int SumOfNumbers = 0;
+    float SumOfNumbers = 0.0;
     int Index = 0;
 
     s.average = 0;
