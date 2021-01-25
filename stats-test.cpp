@@ -24,18 +24,18 @@ TEST_CASE("average is NaN for empty array") {
     
     //Design the REQUIRE statement here.
     //Use https://stackoverflow.com/questions/1923837/how-to-use-nan-and-inf-in-c
+    REQUIRE(isnan(computedStats.average));
+    REQUIRE(isnan(computedStats.max));
+    REQUIRE(isnan(computedStats.min));
 }
 
 TEST_CASE("raises alerts when max is greater than threshold") {
     // create additional .c and .h files
     // containing the emailAlerter, ledAlerter functions
     alerter_funcptr alerters[] = {emailAlerter, ledAlerter};
-
     float numberset[] = {99.8, 34.2, 4.5};
     int setlength = sizeof(numberset) / sizeof(numberset[0]);
-    // dont take the return value and the warning is solved
-    (void)compute_statistics(numberset, setlength);
-
+    Stats computedStats = compute_statistics(numberset, setlength);
     const float maxThreshold = 10.2;
     check_and_alert(maxThreshold, alerters, computedStats);
 
