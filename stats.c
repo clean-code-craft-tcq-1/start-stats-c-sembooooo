@@ -33,7 +33,7 @@ struct Stats compute_statistics(const float *numberset, int setlength)
   else
   {
     s.min = NAN;
-    s.min = NAN;
+    s.max = NAN;
     s.average = NAN;
   }
   return s;
