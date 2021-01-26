@@ -22,7 +22,7 @@ struct Stats compute_statistics(const float *numberset, int setlength)
       {
         s.max = (numberset)[Index];
       }
-      else
+      if((numberset)[Index] < s.min) 
       {
         s.min = (numberset)[Index];
       }
@@ -44,7 +44,7 @@ void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stat
   if(computedStats.max > maxThreshold)
   {
     alerters[0]();
-    alerters[0]();
+    alerters[1]();
   }
 }
 
