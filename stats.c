@@ -41,10 +41,14 @@ struct Stats compute_statistics(const float *numberset, int setlength)
 
 void check_and_alert(float maxThreshold, alerter_funcptr alerters[], struct Stats computedStats)
 {
+  int index,sizeofptrarray;
+  sizeofptrarray = (sizeof(alterters))/(sizeof(*alerters));
   if(computedStats.max > maxThreshold)
   {
-    alerters[0]();
-    alerters[1]();
+    for(index =0; index < sizeofptrarray; index++ )
+    {
+      alerters[index]();
+    }
   }
 }
 
